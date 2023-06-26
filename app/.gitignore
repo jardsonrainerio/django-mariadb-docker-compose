@@ -2,7 +2,7 @@
 *.xml
 **/__pycache__/
 .DS_Store
-/.idea
+*.idea
 /venv
 .env
 .vscode/
