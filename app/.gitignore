@@ -1,0 +1,10 @@
+*.pyc
+*.xml
+**/__pycache__/
+.DS_Store
+.idea
+/venv
+.env
+.vscode/
+debug.log
+jobs.sqlite
