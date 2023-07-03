@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/django
+    env_file: .env
+    ports:
+      - "8008:8008"
+    image: app:django
+    environment:
+     - TZ=America/Manaus
+    container_name: django_app
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8008"
+    extra_hosts:
+     - "host.docker.internal:host-gateway"

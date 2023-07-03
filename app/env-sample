@@ -1,0 +1,9 @@
+# API
+DJANGO_DEBUG=False
+
+# DATABASE
+MARIA_DB=mydb
+MARIA_USER=root
+MARIA_PASSWORD=myrootpassword
+MARIA_HOST=host.docker.internal
+MARIA_PORT=3306
