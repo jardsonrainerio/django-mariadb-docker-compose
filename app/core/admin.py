@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import State, City, Customer, Sale, Company, Service
+from .models import State, City, Customer, Sale, Company, Service, ReturnPayload
 
 
 @admin.register(State)
@@ -51,3 +51,10 @@ class SaleAdmin(admin.ModelAdmin):
 
     get_customer.short_description = 'Customer'
     get_price.short_description = 'Price'
+
+
+@admin.register(ReturnPayload)
+class ReturnPayloadAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active', 'modified_at']
+    list_per_page = 10
+    search_fields = ['name']

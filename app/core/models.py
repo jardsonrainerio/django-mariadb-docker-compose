@@ -126,13 +126,18 @@ class Service(ModelBase):
     )
 
     class Meta:
-        db_table = 'product'
+        db_table = 'service'
 
     def __str__(self):
         return self.name
 
 
 class Sale(ModelBase):
+    class Status_sale(models.TextChoices):
+        ABERTO = 'Aberto', 'Aberto'
+        PAGO = 'Pago', 'Pago'
+        CANCELADO = 'Cancelado', 'Cancelado'
+
     company = models.ForeignKey(
         to='Company',
         on_delete=models.DO_NOTHING,
@@ -151,9 +156,41 @@ class Sale(ModelBase):
         null=False,
         db_column='id_service'
     )
+    status_sale = models.CharField(
+        null=False,
+        max_length=20,
+        choices=Status_sale.choices
+    )
 
     class Meta:
         db_table = 'sale'
 
     def __str__(self):
         return "{} - {}".format(self.customer, self.service, )
+
+
+class ReturnPayload(ModelBase):
+    name = models.CharField(
+        null=False,
+        max_length=64
+    )
+    service = models.CharField(
+        null=False,
+        max_length=64
+    )
+    field = models.CharField(
+        null=False,
+        max_length=5000
+    )
+    sale = models.ForeignKey(
+        to='Sale',
+        on_delete=models.DO_NOTHING,
+        null=False,
+        db_column='id_sale'
+    )
+
+    class Meta:
+        db_table = 'return_payload'
+
+    def __str__(self):
+        return self.name
