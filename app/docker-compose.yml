@@ -3,11 +3,11 @@ services:
   app:
     build: .
     volumes:
-      - .:/django
+      - .:/totem_app_admin
     env_file: .env
     ports:
       - "8008:8008"
-    image: app:django
+    image: app:totem_app_admin
     environment:
      - TZ=America/Manaus
     container_name: totem_app_admin
