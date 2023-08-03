@@ -3,7 +3,7 @@ services:
   smart-totem-admin:
     build: .
     volumes:
-      - .:/django
+      - .:/smart-totem-admi
     env_file: .env
     ports:
       - "8008:8008"
