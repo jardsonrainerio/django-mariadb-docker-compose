@@ -54,7 +54,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smart-totem',
+        "NAME": os.environ.get("MARIA_DB", "'smart-totem"),
         "USER": os.environ.get("MARIA_USER", "admin"),
         "PASSWORD": os.environ.get("MARIA_PASSWORD", "123456"),
         "HOST": os.environ.get("MARIA_HOST", '127.0.0.1'),

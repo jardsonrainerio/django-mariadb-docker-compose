@@ -3,14 +3,14 @@ services:
   app:
     build: .
     volumes:
-      - .:/totem_app_admin
+      - .:/django
     env_file: .env
     ports:
       - "8008:8008"
-    image: app:totem_app_admin
+    image: app:django
     environment:
      - TZ=America/Manaus
-    container_name: totem_app_admin
+    container_name: smart-totem-admin
     command: >
       sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8008"
     extra_hosts:
